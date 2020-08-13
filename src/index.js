@@ -8,20 +8,21 @@ import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import rootReducer from './stores'
 import { composeWithDevTools } from 'redux-devtools-extension';
-
+import { BrowserRouter } from "react-router-dom";
 const rxStore = createStore(
   rootReducer,
   composeWithDevTools(applyMiddleware(thunk))
 )
 
 ReactDOM.render(
- // <React.StrictMode>
-  <Provider store={rxStore} >
-    <App />
-  </Provider>
-  // </React.StrictMode>
-  ,
-  document.getElementById('root')
+    // <React.StrictMode>
+    <BrowserRouter>
+        <Provider store={rxStore}>
+            <App />
+        </Provider>
+    </BrowserRouter>,
+    // </React.StrictMode>
+    document.getElementById("root")
 );
 
 // If you want your app to work offline and load faster, you can change

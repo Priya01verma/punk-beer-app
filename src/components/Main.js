@@ -1,12 +1,12 @@
 import React from 'react';
 import Header from './header';
-import AllBeerData from './home';
+import Navigatepage from './home/NavigatePage';
 
 const Main = () => {
     return (
         <div>
             <Header />
-            <AllBeerData />
+            <Navigatepage /> 
         </div>    
     )
 }

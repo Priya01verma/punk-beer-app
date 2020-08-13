@@ -10,16 +10,26 @@ const AllBeerData = () => {
     useEffect(() => {
         dispatch(getAllBeers());
     }, []);
-     const { allBeersData = [] } = useSelector(({AllBeers: { allBeersData } }) => ({ allBeersData }));
-    console.log(allBeersData);
+    const {
+        allBeersData = [],
+        // eslint-disable-next-line
+    } = useSelector(({ AllBeers: { allBeersData } }) => ({ allBeersData }));
     return (
-        <Box p={4} >
+        <Box p={4}>
             <SearchBar />
             <Box pt={3}>
                 <Grid container spacing={2}>
                     {allBeersData.map((beerData, index) => {
                         return (
-                            <Grid key={index} item xl={4} lg={4} md={6} sm={12} xs={12}>
+                            <Grid
+                                key={index}
+                                item
+                                xl={4}
+                                lg={4}
+                                md={6}
+                                sm={12}
+                                xs={12}
+                            >
                                 <ItemCard beerData={beerData} />
                             </Grid>
                         );

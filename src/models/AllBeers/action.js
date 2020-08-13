@@ -1,6 +1,8 @@
 import axios from "axios";
 
 export const GET_ALL_BEERS = "GET_ALL_BEERS";
+export const TOGGLE_FAVOURITE = "TOGGLE_FAVOURITE";
+export const FAVOURITE = 'FAVOURITE';
 
 export const getAllBeers =() =>{
     return(
@@ -14,4 +16,8 @@ export const getAllBeers =() =>{
             dispatch({type:GET_ALL_BEERS, allBeers : res.data});
         }
     )
+}
+
+export const getFavoriteBeer = () => {
+    
 }

@@ -6,10 +6,12 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 import { Box } from "@material-ui/core";
 import StarBorderIcon from '@material-ui/icons/StarBorder';
+// import { toggleFavourites } from "../../models/AllBeers/action";
+import { useDispatch } from "react-redux";
 
 const ItemCard = ({beerData}) => {
     const classes = useStyles();
-    const { name, image_url, description, tagline } = beerData;
+    const { id, name, image_url, description } = beerData;
     return (
         <Card className={classes.root}>
             <CardMedia
@@ -20,7 +22,7 @@ const ItemCard = ({beerData}) => {
             <div className={classes.details}>
                 <CardContent className={classes.content}>
                     <Box textAlign={'right'}>
-                            <StarBorderIcon />
+                            <StarBorderIcon className={classes.starIcon} />
                     </Box>
                     <Typography component="h5" variant="h5">
                         {name}
@@ -50,6 +52,9 @@ const useStyles = makeStyles((theme) => ({
     cover: {
         width: 200,
         backgroundSize: 'contain'
+    },
+    starIcon: {
+        cursor: 'pointer'
     }
 }));
 export default ItemCard;

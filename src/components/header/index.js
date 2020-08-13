@@ -4,6 +4,7 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
+import { Link } from "react-router-dom";
 
 const Header = () => {
     const classes = useStyles();
@@ -15,8 +16,12 @@ const Header = () => {
                     <Typography variant="h6" className={classes.title}>
                         Beans Love Beers
                     </Typography>
-                    <Button color="inherit">Home</Button>
-                    <Button color="inherit">Favourites</Button>
+                    <Link to={`/`}>
+                        <Button className={classes.linkTextColor}>Home</Button>
+                    </Link>
+                    <Link to={`/favourites`}>
+                        <Button className={classes.linkTextColor}>Favourites</Button>
+                    </Link>
                 </Toolbar>
             </AppBar>
         </div>
@@ -34,5 +39,8 @@ const useStyles = makeStyles((theme) => ({
         flexGrow: 1,
         textAlign: "left",
     },
+    linkTextColor: {
+        color: "#fff"
+    }
 }));
 export default Header;
