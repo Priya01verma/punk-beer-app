@@ -1,8 +1,9 @@
-import { GET_ALL_BEERS, TOGGLE_FAVOURITE } from "./action";
+import { GET_ALL_BEERS, FAVOURITE_BEER } from "./action";
 
 const initialState ={
     allBeersData :[],
-    byIds: {}
+    byIds: {},
+    favouriteBeer:[]
 }
 
 const AllBeers = (state = initialState, action) => {
@@ -12,20 +13,12 @@ const AllBeers = (state = initialState, action) => {
                 ...state,
                 allBeersData: action.allBeers,
             }
-        case TOGGLE_FAVOURITE: {
-            const { id } = action.payload;
-            console.log({ checkActiondata: action })
+        case FAVOURITE_BEER:
+            console.log(action)
             return {
                 ...state,
-                byIds: {
-                    ...state.byIds,
-                    [id]: {
-                        ...state.byIds[id],
-                       // completed: !state.byIds[id].completed,
-                    },
-                },
-            };
-        }
+                favouriteBeer : [...state.favouriteBeer, action.favouriteBeer]
+            }
         default: return state;
     }
 };

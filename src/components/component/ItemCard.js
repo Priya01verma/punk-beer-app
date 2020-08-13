@@ -6,12 +6,10 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 import { Box } from "@material-ui/core";
 import StarBorderIcon from '@material-ui/icons/StarBorder';
-// import { toggleFavourites } from "../../models/AllBeers/action";
-import { useDispatch } from "react-redux";
 
 const ItemCard = ({beerData}) => {
     const classes = useStyles();
-    const { id, name, image_url, description } = beerData;
+    const {  name, image_url, description } = beerData;
     return (
         <Card className={classes.root}>
             <CardMedia
