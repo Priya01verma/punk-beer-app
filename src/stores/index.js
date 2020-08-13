@@ -1,8 +1,10 @@
 import { combineReducers } from "redux";
 import AllBeers from '../models/AllBeers';
+import Auth from "../models/Auth";
 
 const RootReducer = combineReducers({
-    AllBeers
+    AllBeers,
+    Auth
 });
 
 export default RootReducer;

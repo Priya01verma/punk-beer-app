@@ -5,8 +5,7 @@ import { Grid, Box } from "@material-ui/core";
 
 const FavouriteBeer = () => {
     const {
-        favouriteBeer = [],
-        // eslint-disable-next-line
+        favouriteBeer = []
     } = useSelector(({ AllBeers: { favouriteBeer } }) => ({ favouriteBeer }));
     return (
         <>
@@ -26,7 +25,7 @@ const FavouriteBeer = () => {
                                     sm={12}
                                     xs={12}
                                 >
-                                    <ItemCard beerData={beerData} />
+                                    <ItemCard beerData={beerData} showCheckBoxButton={false} />
                                 </Grid>
                             );
                         })}

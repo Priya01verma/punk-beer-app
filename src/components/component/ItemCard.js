@@ -6,10 +6,19 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 import { Box } from "@material-ui/core";
 import StarBorderIcon from '@material-ui/icons/StarBorder';
+import StarIcon from '@material-ui/icons/Star';
+import Checkbox from '@material-ui/core/Checkbox';
 
-const ItemCard = ({beerData}) => {
+const ItemCard = (props) => {
     const classes = useStyles();
-    const {  name, image_url, description } = beerData;
+    const [checked, setChecked] = React.useState(false);
+
+    const handleChange = (event) => {
+        setChecked(event.target.checked);
+      };
+
+    const { beerData:{ name, image_url, description } ={},  showCheckBoxButton =false} = props;
+
     return (
         <Card className={classes.root}>
             <CardMedia
@@ -20,7 +29,17 @@ const ItemCard = ({beerData}) => {
             <div className={classes.details}>
                 <CardContent className={classes.content}>
                     <Box textAlign={'right'}>
-                            <StarBorderIcon className={classes.starIcon} />
+                        {/* <StarBorderIcon className={classes.starIcon} />
+                        <StarIcon /> */}
+                        {
+                            showCheckBoxButton ? 
+                            <Checkbox
+                            checked={checked}
+                            onChange={handleChange}
+                            inputProps={{ 'aria-label': 'primary checkbox' }}
+                                /> :
+                            null    
+                        }
                     </Box>
                     <Typography component="h5" variant="h5">
                         {name}
