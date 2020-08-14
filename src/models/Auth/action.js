@@ -4,7 +4,6 @@ export const signup = user => async dispatch => {
   const emailVerification = () => {
     let keys = Object.keys(localStorage);
     let i = keys.length;
-
     while (i--) {
       if (JSON.parse(localStorage.getItem(keys[i])).email === user.email) {
         return true;

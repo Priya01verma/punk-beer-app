@@ -20,16 +20,16 @@ const Header = () => {
                     <Typography variant="h6" className={classes.title}>
                         Beans Love Beers
                     </Typography>
-                    <Link to={`/allBeers`}>
+                    <Link to={`/allBeers`} className={classes.linktextDecoration}>
                         <Button className={classes.linkTextColor}>Home</Button>
                     </Link>
-                    <Link to={`/favourites`}>
+                    <Link to={`/favourites`} className={classes.linktextDecoration}>
                         <Button className={classes.linkTextColor}>Favourites</Button>
                     </Link>
                     {isAuthenticated && (
-                            <a href="#!" onClick={() => dispatch({ type: LOGOUT })}>
-                            Logout
-                            </a>
+                            <Link to="/" onClick={() => dispatch({ type: LOGOUT })} className={classes.linktextDecoration}>
+                                <Button  className={classes.linkTextColor}>Logout</Button>
+                            </Link>
                     )}
                 </Toolbar>
             </AppBar>
@@ -50,6 +50,9 @@ const useStyles = makeStyles((theme) => ({
     },
     linkTextColor: {
         color: "#fff"
+    },
+    linktextDecoration: {
+        textDecoration: "unset"
     }
 }));
 export default Header;
