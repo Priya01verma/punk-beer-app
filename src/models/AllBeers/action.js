@@ -29,10 +29,10 @@ export const getBeersByName = (beer_name) =>{
     return async (dispatch) => {
         const res = await axios({
             method: "GET",
-            url: `https://api.punkapi.com/v2/beers/${beer_name}`,
+            url: `https://api.punkapi.com/v2/beers?beer_name=${beer_name}`,
         }).catch((err) => {
             throw err;
         });
-        dispatch({ type: GET_BEERS_BY_NAME, allBeers: res.data });
+        dispatch({ type: GET_ALL_BEERS, allBeers: res.data });
     };
 }

@@ -20,9 +20,11 @@ const Header = () => {
                     <Typography variant="h6" className={classes.title}>
                         Beans Love Beers
                     </Typography>
-                    <Link to={`/allBeers`} className={classes.linktextDecoration}>
-                        <Button className={classes.linkTextColor}>Home</Button>
-                    </Link>
+                    {isAuthenticated && (
+                        <Link to={`/allBeers`} className={classes.linktextDecoration}>
+                            <Button className={classes.linkTextColor}>Home</Button>
+                        </Link>
+                    )}   
                     <Link to={`/favourites`} className={classes.linktextDecoration}>
                         <Button className={classes.linkTextColor}>Favourites</Button>
                     </Link>

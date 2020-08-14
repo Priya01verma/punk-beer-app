@@ -3,19 +3,12 @@ import { TextField, Button, makeStyles } from "@material-ui/core";
 
 const SearchBar = (props) => {
     const classes = useStyles();
-    const [lastSearchValue, setLastSearchValue] = useState(props.value || "");
-    const submit = () => {
-        let {  value="", onSubmit } = props;
-        // if(!value.trim() && value.trim() !== lastSearchValue.trim()){
-        //     return this.reset("");
-        // }
-        // if (value.trim() !== lastSearchValue.trim()) {
-        //     setLastSearchValue({ lastSearchValue: value.trim() },onSubmit);
-        //     return 0;
-        // }
+    
+    const submit = (data) => {
+        let { value = "", onSubmit } = props;
+        onSubmit(value)
     }
     let { value } = props;
-    console.log({ checkValue: value });
 
     const onChange = (ev) => {
         let { onChange } = props;
@@ -29,10 +22,11 @@ const SearchBar = (props) => {
                 value={value}
                 placeholder={"Search for beer..."}
                 className={classes.root}
-                 onChange={onChange}
+                onChange={onChange}
+                style={{textTransform:'capitalize'}}
                 // onKeyDown={keyDown}
             />
-            <Button variant="contained" color="primary" className={classes.searchButton} onClick={submit}>
+            <Button variant="contained" color="primary" className={classes.searchButton}  onClick={() => submit(props.value)}>
                 Search
             </Button>
         </>

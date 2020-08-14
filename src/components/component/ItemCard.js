@@ -14,6 +14,7 @@ const ItemCard = (props) => {
     const [checked, setChecked] = React.useState(false);
 
     const handleChange = (event) => {
+        props.onClick()
         setChecked(event.target.checked);
       };
 
